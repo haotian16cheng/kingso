@@ -5,11 +5,12 @@ using UnityEngine;
 public class SpeedGround : Ground
 {
     public float speed;
-    public override void OnPass(Collider2D collision)
+    public override void OnPass(Circle circle)
     {
-        if(collision.transform.GetComponent<Circle>().speed<speed)
+        base.OnPass(circle);
+        if(circle.speed<speed)
         {
-            OnBounce(collision);
+            OnBounce(circle);
         }
     }
 }

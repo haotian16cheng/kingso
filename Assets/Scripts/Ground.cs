@@ -10,13 +10,13 @@ public class Ground : MonoBehaviour
     {
         groundCollider = transform.GetComponent<Collider2D>();
     }
-    virtual public void OnBounce(Collider2D collision)
+    virtual public void OnBounce(Circle circle)
     {
         groundCollider.isTrigger = false;
     }
-    virtual public void OnPass(Collider2D collision)
+    virtual public void OnPass(Circle circle)
     {
-
+        circle.circleLock = true;
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -25,11 +25,11 @@ public class Ground : MonoBehaviour
             Circle circle = collision.transform.GetComponent<Circle>();
             if (color == circle.color)
             {
-                circle.circleLock = true;
+                OnPass(circle);
             }
             else
             {
-                OnBounce(collision);
+                OnBounce(circle);
             }
         }
     }

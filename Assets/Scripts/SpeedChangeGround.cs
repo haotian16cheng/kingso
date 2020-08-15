@@ -5,9 +5,9 @@ using UnityEngine;
 public class SpeedChangeGround : Ground
 {
     public float ratio;
-    public override void OnPass(Collider2D collision)
+    public override void OnPass(Circle circle)
     {
-        Circle circle = collision.transform.GetComponent<Circle>();
+        base.OnPass(circle);
         circle.SetSpeed(circle.speed*ratio);
     }
 }
