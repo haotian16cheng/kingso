@@ -11,7 +11,7 @@ public class Circle : MonoBehaviour
     public bool circleLock;
 
     SpriteRenderer render;
-    Rigidbody2D rigidbody2D;
+    public Rigidbody2D rigidbody2D;
 
     bool reset = true;
     // Start is called before the first frame update
@@ -58,14 +58,18 @@ public class Circle : MonoBehaviour
             collision.tag = "start";
         }
     }
+    public void Reset()
+    {
+        reset = true;
+        this.transform.localPosition = Manager.Instance.shootList[id].transform.localPosition;
+        rigidbody2D.velocity = Vector2.zero;
+    }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.tag == "bg")
         {
-            reset = true;
-            this.transform.localPosition = Manager.Instance.shootList[id].transform.localPosition;
-            rigidbody2D.velocity = Vector2.zero;
+            Reset();
         }
     }
 

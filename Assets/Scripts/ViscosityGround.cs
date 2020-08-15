@@ -2,36 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ViscosityGround : MonoBehaviour
+public class ViscosityGround : Ground
 {
-    public Collider2D groundCollider;
-    public COLOR color;
-    private void Awake()
+    public override void OnPass(Circle circle)
     {
-        groundCollider = transform.GetComponent<Collider2D>();
-    }
-    virtual public void OnBounce()
-    {
-        groundCollider.isTrigger = false;
-    }
-    virtual public void OnPass()
-    {
-
-    }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.tag == "circle")
+        base.OnPass(circle);
+        float angle = Vector2.Angle(new Vector2(Mathf.Cos((float)transform.eulerAngles.z * Mathf.PI / 180), -Mathf.Sin((float)transform.eulerAngles.z * Mathf.PI / 180)), circle.rigidbody2D.velocity);
+        if (angle > 0 && angle < 180)
         {
-            Circle circle = collision.transform.GetComponent<Circle>();
-            if (color != circle.color)
-            {
-                OnBounce();
-            }
+            circle.rigidbody2D.velocity = new Vector2(Mathf.Sin((float)transform.eulerAngles.z * Mathf.PI / 180), -Mathf.Cos((float)transform.eulerAngles.z * Mathf.PI / 180)) * circle.speed;
         }
-    }
-    private void OnCollisionStay2D(Collision2D collision)
-    {
-        Debug.Log("碰撞开始");
-        groundCollider.isTrigger = true;
+        else
+        {
+            circle.rigidbody2D.velocity = new Vector2(-Mathf.Sin((float)transform.eulerAngles.z * Mathf.PI / 180), Mathf.Cos((float)transform.eulerAngles.z * Mathf.PI / 180)) * circle.speed;
+        }
     }
 }
