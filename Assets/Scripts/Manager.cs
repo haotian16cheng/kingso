@@ -62,7 +62,7 @@ public class Manager : Singleton<Manager>
         switch (level)
         {
             case 1:
-                MoveCamera(Const.cameraPosition[level - 1])
+                MoveCamera(Const.cameraPosition[level - 1]);
                 break;
         }
     }
