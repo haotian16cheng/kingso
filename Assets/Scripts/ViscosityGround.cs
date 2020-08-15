@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ground : MonoBehaviour
+public class ViscosityGround : MonoBehaviour
 {
     public Collider2D groundCollider;
     public COLOR color;
@@ -10,11 +10,11 @@ public class Ground : MonoBehaviour
     {
         groundCollider = transform.GetComponent<Collider2D>();
     }
-    virtual public void OnBounce(Collider2D collision)
+    virtual public void OnBounce()
     {
         groundCollider.isTrigger = false;
     }
-    virtual public void OnPass(Collider2D collision)
+    virtual public void OnPass()
     {
 
     }
@@ -25,7 +25,7 @@ public class Ground : MonoBehaviour
             Circle circle = collision.transform.GetComponent<Circle>();
             if (color != circle.color)
             {
-                OnBounce(collision);
+                OnBounce();
             }
         }
     }

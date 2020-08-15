@@ -102,6 +102,10 @@ public class Circle : MonoBehaviour
             reset = !reset;
         }
     }
-
+    public void SetSpeed(float speed)
+    {
+        this.speed = speed;
+        rigidbody2D.velocity = velocity.normalized * speed;
+    }
 
 }
