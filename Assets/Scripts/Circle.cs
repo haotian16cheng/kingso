@@ -8,7 +8,7 @@ public class Circle : MonoBehaviour
     public float speed = 5;
     public Vector2 velocity = new Vector2(0, -5);
     public COLOR color = COLOR.BLKAC;
-
+    public bool circleLock;
 
     SpriteRenderer render;
     Rigidbody2D rigidbody2D;
@@ -73,8 +73,9 @@ public class Circle : MonoBehaviour
 
     public void ChangeColor()
     {
-        if (Manager.Instance.bLock)
+        if (Manager.Instance.bLock||circleLock)
         {
+            Debug.Log("锁定");
             return;
         }
         string path = "white_circle";

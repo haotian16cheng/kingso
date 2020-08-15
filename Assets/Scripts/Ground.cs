@@ -23,10 +23,21 @@ public class Ground : MonoBehaviour
         if (collision.tag == "circle")
         {
             Circle circle = collision.transform.GetComponent<Circle>();
-            if (color != circle.color)
+            if (color == circle.color)
+            {
+                circle.circleLock = true;
+            }
+            else
             {
                 OnBounce(collision);
             }
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.tag == "circle")
+        {
+            collision.transform.GetComponent<Circle>().circleLock=false;
         }
     }
     private void OnCollisionStay2D(Collision2D collision)
