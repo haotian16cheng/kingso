@@ -5,7 +5,8 @@ using UnityEngine;
 public class Circle : MonoBehaviour
 {
     public int id = 0;
-    public float speed = 5;
+    public float startSpeed = 5;
+    public float speed;
     public Vector2 velocity = new Vector2(0, -5);
     public COLOR color = COLOR.BLKAC;
     public bool circleLock = true;
@@ -104,7 +105,8 @@ public class Circle : MonoBehaviour
 
         if (reset)
         {
-            rigidbody2D.velocity = velocity.normalized * speed;
+            rigidbody2D.velocity = velocity.normalized * startSpeed;
+            speed = startSpeed;
             reset = !reset;
         }
     }
