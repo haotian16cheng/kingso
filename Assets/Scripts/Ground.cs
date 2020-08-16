@@ -13,9 +13,9 @@ public class Ground : MonoBehaviour
     }
     public virtual void OnBounce(Circle circle)
     {
-        groundCollider.isTrigger = false;
+        //groundCollider.isTrigger = false;
         Debug.Log("方向改变");
-        //circle.rigidbody2D.velocity=Vector2.Reflect(circle.rigidbody2D.velocity, new Vector2(Mathf.Sin(transform.eulerAngles.z), -Mathf.Cos(transform.eulerAngles.z)));
+        circle.rigidbody2D.velocity=Vector2.Reflect(circle.rigidbody2D.velocity, new Vector2(Mathf.Sin(transform.eulerAngles.z), -Mathf.Cos(transform.eulerAngles.z)));
     }
     public virtual void OnPass(Circle circle)
     {
