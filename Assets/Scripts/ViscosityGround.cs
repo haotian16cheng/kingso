@@ -13,6 +13,6 @@ public class ViscosityGround : Ground
             velocity.x *= -1;
             velocity.y *= -1;
         }
-        circle.rigidbody2D.velocity=velocity*circle.speed;
+        circle.rigidbody2D.velocity=velocity*circle.startSpeed;
     }
 }
