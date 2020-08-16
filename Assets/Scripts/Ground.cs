@@ -11,11 +11,11 @@ public class Ground : MonoBehaviour
     {
         groundCollider = transform.GetComponent<Collider2D>();
     }
-    virtual public void OnBounce(Circle circle)
+    public virtual void OnBounce(Circle circle)
     {
         groundCollider.isTrigger = false;
     }
-    virtual public void OnPass(Circle circle)
+    public virtual void OnPass(Circle circle)
     {
         circle.circleLock = true;
     }

@@ -9,8 +9,9 @@ public class TwoColorGround : Ground
         if (collision.tag == "circle")
         {
             Circle circle = collision.transform.GetComponent<Circle>();
-            Debug.Log(Vector2.SignedAngle(circle.rigidbody2D.velocity, new Vector2(Mathf.Cos(transform.eulerAngles.z), Mathf.Sin(transform.eulerAngles.z))));
-            if (Vector2.SignedAngle(circle.rigidbody2D.velocity, new Vector2(Mathf.Cos(transform.eulerAngles.z), Mathf.Sin(transform.eulerAngles.z))) > 0)
+            float angle = Vector2.SignedAngle(circle.rigidbody2D.velocity, Vector2.right);
+            Debug.Log(transform.eulerAngles.z);
+            if (angle<180?transform.eulerAngles.z>angle&&transform.eulerAngles.z<angle+180: transform.eulerAngles.z>angle||transform.eulerAngles.z<angle-180)
             {
                 if (circle.color == COLOR.BLKAC)
                 {
