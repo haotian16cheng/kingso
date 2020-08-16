@@ -7,15 +7,12 @@ public class ViscosityGround : Ground
     public override void OnPass(Circle circle)
     {
         base.OnPass(circle);
-        float angle = Vector2.SignedAngle(new Vector2(Mathf.Cos((float)transform.eulerAngles.z * Mathf.PI / 180), -Mathf.Sin((float)transform.eulerAngles.z * Mathf.PI / 180)), circle.rigidbody2D.velocity);
-        Debug.Log(angle);
-        if (angle > 0 && angle < 180)
+        Vector2 velocity = new Vector2(Mathf.Sin((float)transform.eulerAngles.z * Mathf.PI / 180), -Mathf.Cos((float)transform.eulerAngles.z * Mathf.PI / 180));
+        if(Vector2.Angle(circle.rigidbody2D.velocity,velocity)>90)
         {
-            circle.rigidbody2D.velocity = new Vector2(Mathf.Sin((float)transform.eulerAngles.z * Mathf.PI / 180), -Mathf.Cos((float)transform.eulerAngles.z * Mathf.PI / 180)) * circle.speed;
+            velocity.x *= -1;
+            velocity.y *= -1;
         }
-        else
-        {
-            circle.rigidbody2D.velocity = new Vector2(-Mathf.Sin((float)transform.eulerAngles.z * Mathf.PI / 180), Mathf.Cos((float)transform.eulerAngles.z * Mathf.PI / 180)) * circle.speed;
-        }
+        circle.rigidbody2D.velocity=velocity*circle.speed;
     }
 }
