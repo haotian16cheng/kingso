@@ -25,11 +25,18 @@ public class Manager : Singleton<Manager>
     public Button button2;
     public Text levelText;
 
+    public List<Circle> circles = new List<Circle>();
+
+    public List<Shoot> totalShoot1List = new List<Shoot>();
+    public List<Shoot> totalShoot2List = new List<Shoot>();
+
+
     // Start is called before the first frame update
     void Start()
     {
         textAnimation();
         totalFlagNum.text = totalNNum.ToString();
+        circles[0].circleLock = false;
     }
 
     // Update is called once per frame
@@ -79,6 +86,8 @@ public class Manager : Singleton<Manager>
                     {
                         setButton2Visble(true);
                         setButton1Visble(true);
+                        circles[1].circleLock = false;
+                        //circles[0].circleLock = true;
                     });
                 }
                 break;
@@ -86,8 +95,12 @@ public class Manager : Singleton<Manager>
                 {
                     MoveCamera(Const.cameraPosition[level - 1], () =>
                     {
-                        setButton2Visble(true);
+                        setButton2Visble(false);
                         setButton1Visble(true);
+                        circles[0].circleLock = true;
+                        circles[1].circleLock = true;
+                        circles[2].circleLock = false;
+                        //shootList[0] = totalShoot1List[1];
                     });
                 }
                 break;

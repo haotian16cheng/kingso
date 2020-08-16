@@ -8,7 +8,7 @@ public class Circle : MonoBehaviour
     public float speed = 5;
     public Vector2 velocity = new Vector2(0, -5);
     public COLOR color = COLOR.BLKAC;
-    public bool circleLock;
+    public bool circleLock = true;
 
     SpriteRenderer render;
     public Rigidbody2D rigidbody2D;
@@ -31,6 +31,7 @@ public class Circle : MonoBehaviour
             Debug.LogError(name + "不存在");
         }
         render.sprite = sprite;
+       // circleLock = true;
     }
 
     // Update is called once per frame

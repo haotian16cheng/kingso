@@ -14,7 +14,7 @@ public static class Const
     public static List<Vector2> cameraPosition = new List<Vector2>
     {
         new Vector2(11.6f ,0),
-        new Vector2(0, 3),
+        new Vector2(30f, 0),
         new Vector2(),
         new Vector2(),
         new Vector2(),
@@ -27,7 +27,7 @@ public static class Const
          "合作",
           "跳板",
            "对与错",
-            "竞争",
+            "梦想",
              "视角",
               "阻力",
                "梦想"
