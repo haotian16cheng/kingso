@@ -29,6 +29,7 @@ public class Manager : Singleton<Manager>
     void Start()
     {
         textAnimation();
+        totalFlagNum.text = totalNNum.ToString();
     }
 
     // Update is called once per frame
@@ -44,6 +45,7 @@ public class Manager : Singleton<Manager>
         if (curNNum >= totalNNum)
         {
             level++;
+        
             Move();
         }
     }
@@ -67,15 +69,81 @@ public class Manager : Singleton<Manager>
     {
         setButton1Visble(false);
         setButton2Visble(false);
+
         bLock = true;
         switch (level)
         {
             case 1:
-                MoveCamera(Const.cameraPosition[level - 1], ()=> {
-                    setButton2Visble(true);
-                    setButton1Visble(true);
-                });
-                
+                {
+                    MoveCamera(Const.cameraPosition[level - 1], () =>
+                    {
+                        setButton2Visble(true);
+                        setButton1Visble(true);
+                    });
+                }
+                break;
+            case 2:
+                {
+                    MoveCamera(Const.cameraPosition[level - 1], () =>
+                    {
+                        setButton2Visble(true);
+                        setButton1Visble(true);
+                    });
+                }
+                break;
+            case 3:
+                {
+                    MoveCamera(Const.cameraPosition[level - 1], () =>
+                    {
+                        setButton2Visble(true);
+                        setButton1Visble(true);
+                    });
+                }
+                break;
+            case 4:
+                {
+                    MoveCamera(Const.cameraPosition[level - 1], () =>
+                    {
+                        setButton2Visble(true);
+                        setButton1Visble(true);
+                    });
+                }
+                break;
+            case 5:
+                {
+                    MoveCamera(Const.cameraPosition[level - 1], () =>
+                    {
+                        setButton2Visble(true);
+                        setButton1Visble(true);
+                    });
+                }
+                break;
+            case 6:
+                {
+                    MoveCamera(Const.cameraPosition[level - 1], () =>
+                    {
+                        setButton2Visble(true);
+                        setButton1Visble(true);
+                    });
+                }
+                break;
+            case 7:
+                {
+                    MoveCamera(Const.cameraPosition[level - 1], () =>
+                    {
+                        setButton2Visble(true);
+                        setButton1Visble(true);
+                    });
+                }
+                break;
+            case 8:
+                {
+                    MoveCamera(Const.cameraPosition[level - 1], () =>
+                    {
+                        setButton2Visble(true);
+                        setButton1Visble(true);
+                    });
+                }
                 break;
         }
     }
@@ -86,6 +154,9 @@ public class Manager : Singleton<Manager>
         tweener.onComplete += call;
         tweener.onComplete += ()=> {
             textAnimation();
+            curNNum = 0;
+            totalNNum = Const.levelFlagNum[level];
+            updateFlag(curNNum, totalNNum);
             bLock = false;
         };
         //  bg.transform.DOMove(position, 1);

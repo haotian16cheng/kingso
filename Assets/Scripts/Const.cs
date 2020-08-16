@@ -14,7 +14,7 @@ public static class Const
     public static List<Vector2> cameraPosition = new List<Vector2>
     {
         new Vector2(11.6f ,0),
-        new Vector2(0, 0),
+        new Vector2(0, 3),
         new Vector2(),
         new Vector2(),
         new Vector2(),
@@ -31,5 +31,8 @@ public static class Const
              "视角",
               "阻力",
                "梦想"
+    };
+    public static List<int> levelFlagNum = new List<int> { 
+        1,2,1,1,1,1,1,1,1,1,1,1,1
     };
 }
