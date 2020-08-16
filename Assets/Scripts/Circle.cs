@@ -113,7 +113,7 @@ public class Circle : MonoBehaviour
     public void SetSpeed(float speed)
     {
         this.speed = speed;
-        rigidbody2D.velocity = velocity.normalized * speed;
+        rigidbody2D.velocity = rigidbody2D.velocity.normalized * speed;
     }
 
 }
