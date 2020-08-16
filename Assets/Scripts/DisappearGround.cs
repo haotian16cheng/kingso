@@ -11,12 +11,11 @@ public class DisappearGround : Ground
         gameObject.SetActive(false);
         if (time >= 0)
         {
-            StartCoroutine(Countdown());
+            Manager.Instance.StartCoroutine(Countdown());
         }  
     }
     IEnumerator Countdown()
     {
-
         yield return new WaitForSeconds(time);
         gameObject.SetActive(true);
     }
