@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Ground : MonoBehaviour
 {
-    public Collider2D groundCollider;
+    private Collider2D groundCollider;
     public COLOR color;
     private void Awake()
     {
