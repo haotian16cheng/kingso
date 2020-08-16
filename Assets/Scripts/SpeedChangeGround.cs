@@ -8,6 +8,6 @@ public class SpeedChangeGround : Ground
     public override void OnPass(Circle circle)
     {
         base.OnPass(circle);
-        circle.SetSpeed(circle.speed*ratio);
+        circle.rigidbody2D.velocity *= ratio;
     }
 }
