@@ -13,7 +13,6 @@ public class Ground : MonoBehaviour
     }
     public virtual void OnBounce(Circle circle)
     {
-        //groundCollider.isTrigger = false;
         Debug.Log("方向改变");
          circle.rigidbody2D.velocity=Vector2.Reflect(circle.rigidbody2D.velocity, new Vector2(Mathf.Sin((float)transform.eulerAngles.z * Mathf.PI / 180), -Mathf.Cos((float)transform.eulerAngles.z * Mathf.PI / 180)));
     }
@@ -42,10 +41,5 @@ public class Ground : MonoBehaviour
         {
             collision.transform.GetComponent<Circle>().circleLock=false;
         }
-    }
-    private void OnCollisionStay2D(Collision2D collision)
-    {
-        Debug.Log("碰撞开始");
-        groundCollider.isTrigger = true;
     }
 }
